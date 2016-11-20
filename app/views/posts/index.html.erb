@@ -1,0 +1,39 @@
+<div class="page-header">Welcome <%= current_user.name %></div>
+<h1>Here are the all Posts</h1>
+
+
+<% @posts.each do |post| %>
+  <div class="container">
+      <h4><%= post.user.name %> wrote: </h4>
+      <p> <strong>Title:</strong></p>
+   <p> <%= post.title %> </p>
+       <strong>Content:</strong>
+     <p> <%= post.content %></p>
+  </div>
+<% if current_user.name == post.user.
+    name %>
+<%= link_to 'Edit', edit_post_path(post) %>
+     
+     
+     <%= link_to 'Destroy', post, method: :delete %>
+<% end %>
+
+<h3>Comments</h3>
+
+<%= form_for [post, Comment.new] do |f| %>
+<%= f.text_area :body, placeholder: "Add a comment" %><br/>
+<%= f.submit "Add Comment" %>
+<% end %>
+
+<div class="container">
+<ul>
+  <%= render(partial: 'comments/comment', collection: post.comments) %>
+</ul>
+    </div>
+
+
+
+<% end %>
+
+
+<%= link_to 'New Post', new_post_path %>
