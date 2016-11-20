@@ -1,4 +1,5 @@
 <div class="page-header">Welcome <%= current_user.name %></div>
+<%= link_to "Sign out", signout_path %>
 <h1>Here are the all Posts</h1>
 
 
@@ -18,6 +19,12 @@
      <%= link_to 'Destroy', post, method: :delete %>
 <% end %>
 
+<div class="container">
+<ul>
+  <%= render(partial: 'comments/comment', collection: post.comments) %>
+</ul>
+    </div>
+
 <h3>Comments</h3>
 
 <%= form_for [post, Comment.new] do |f| %>
@@ -25,11 +32,7 @@
 <%= f.submit "Add Comment" %>
 <% end %>
 
-<div class="container">
-<ul>
-  <%= render(partial: 'comments/comment', collection: post.comments) %>
-</ul>
-    </div>
+
 
 
 
@@ -37,3 +40,57 @@
 
 
 <%= link_to 'New Post', new_post_path %>
+
+<div class="container">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+	<div class="row">
+	<!-- Contenedor Principal -->
+    <div class="comments-container">
+		<h1>Posts Page <a href="http://creaticode.com">looks nice...</a></h1>
+
+		<ul id="comments-list" class="comments-list">
+			<li>
+                <% @posts.each do |post| %>
+				<div class="comment-main-level">
+					<!-- Avatar -->
+					<div class="comment-avatar"><img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_1_zps8e1c80cd.jpg" alt=""></div>
+					<!-- Contenedor del Comentario -->
+					<div class="comment-box">
+						<div class="comment-head">
+							<h6 class="comment-name by-author"><%= post.user.name %> wrote: </a></h6>
+							<span><%= time_ago_in_words(post.created_at) %></span>
+							<i class="fa fa-reply"></i>
+							<i class="fa fa-heart"></i>
+						</div>
+						<div class="comment-content">
+							<%= post.content %>
+						</div>
+					</div>
+				</div>
+                
+				<!-- Res
+puestas de los comentarios -->
+				<ul class="comments-list reply-list">
+					<li>
+						<!-- Avatar -->
+						<div class="comment-avatar"><img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_1_zps8e1c80cd.jpg" alt=""></div>
+						<!-- Contenedor del Comentario -->
+						<div class="comment-box">
+							<div class="comment-head">
+								<h6 class="comment-name by-author"><a href="http://creaticode.com/blog">Agustin Ortiz</a></h6>
+								<span>hace 10 minutos</span>
+								<i class="fa fa-reply"></i>
+								<i class="fa fa-heart"></i>
+							</div>
+							<div class="comment-content">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
+							</div>
+						</div>
+					</li>
+				</ul>
+          <% end %>
+			</li>
+		</ul>
+	</div>
+	</div>
+</div>
