@@ -1,17 +1,50 @@
-<li>
-
-  <%= comment.body %> -
-  <small>Submitted <%= time_ago_in_words(comment.created_at) %> ago, by <%= comment.user.name %></small>
-    <% if comment.user.name == current_user.name %>
-    <%= link_to "Delete comment", comment , method: :delete %>
-    <% end %>
-  <%= form_for [comment, Comment.new] do |f| %>
-      <%= f.text_area :body, placeholder: "Add a Reply" %><br/>
-      <%= f.submit "Reply"  %>
+     <section class="comment-list">
+         
+           
+          <article class="row">
+            <div class="col-md-2 col-sm-2 hidden-xs">
+              <figure class="thumbnail">
+             <%= image_tag(comment.user.normalimage) %>
+                <figcaption class="text-center"><%= comment.user.name %></figcaption>
+              </figure>
+            </div>
+            <div class="col-md-10 col-sm-10">
+              <div class="panel panel-default arrow left">
+                <div class="panel-body">
+                  <header class="text-left">
+                    <div class="comment-user"><i class="fa fa-repeat"></i>  <%= comment.user.name %> answered:</div>
+                    <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i>  <%= time_ago_in_words(comment.created_at) %> ago</time>
+                  </header>
+                  <div class="comment-post">
+                    <p>
+                   <strong><%= comment.body %></strong>
+                    </p>
+                  </div>
+                  
+                    <% if current_user.name == comment.user.name %>
+                 
+                   <%= link_to 'Update', edit_post_comment_path(:commentable_id, :post_id) %>
+     
+                   <%= link_to 'Destroy', comment, method: :delete %>
+                   <% end %>
+                </div>
+              </div>
+                
+      <%= form_for [comment, Comment.new] do |f| %>
+      <%= f.text_area :body, placeholder: "Reply to this comment", class: "form-control", id: "comm" %><br/>
+                <li><%= f.submit "Reply", class: "btn-danger" %></li>
+      <br/>            
       <% end %>
+            </div>
+     
+          </article>
+     
+     
+            <ul>
+               <%= render(partial: 'comments/comment', collection: comment.comments) %>
+            </ul>
+        </section>
+        
 
-  <ul>
-      <%= render partial: 'comments/comment', collection: comment.comments %>
-  </ul>
 
-</li>
+

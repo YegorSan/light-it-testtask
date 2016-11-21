@@ -1,96 +1,74 @@
-<div class="page-header">Welcome <%= current_user.name %></div>
-<%= link_to "Sign out", signout_path %>
-<h1>Here are the all Posts</h1>
+<div class="page-header" id='mph'>Welcome <%= current_user.name %> <br/>  <%= image_tag(current_user.normalimage) %>
+    
+    <br/>
+    <%= link_to "Sign out", signout_path %>
+</div>
+
+<%= render 'form' %>
 
 
-<% @posts.each do |post| %>
-  <div class="container">
-      <h4><%= post.user.name %> wrote: </h4>
-      <p> <strong>Title:</strong></p>
-   <p> <%= post.title %> </p>
-       <strong>Content:</strong>
-     <p> <%= post.content %></p>
-  </div>
-<% if current_user.name == post.user.
-    name %>
-<%= link_to 'Edit', edit_post_path(post) %>
-     
-     
-     <%= link_to 'Destroy', post, method: :delete %>
-<% end %>
-
+ 
 <div class="container">
-<ul>
-  <%= render(partial: 'comments/comment', collection: post.comments) %>
-</ul>
+  <div class="row">
+    <div class="col-md-8">
+      <h2 class="page-header">Posts</h2>
+        <% @posts.each do |post| %>
+        <section class="comment-list">
+          <!-- First Comment -->
+           
+          <article class="row">
+            <div class="col-md-2 col-sm-2 hidden-xs">
+              <figure class="thumbnail" id="asd">
+               
+                   <%= image_tag(post.user.normalimage) %>
+
+                <figcaption class="text-center"><%= post.user.name %></figcaption>
+              </figure>
+            </div>
+            <div class="col-md-10 col-sm-10">
+              <div class="panel panel-default arrow left" id="postback">
+                <div class="panel-body">
+                  <header class="text-left">
+                    <div class="comment-user"><i class="fa fa-user"></i>  <%= post.user.name %> wrote:</div>
+                    <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i>  <%= time_ago_in_words(post.created_at) %> ago</time>
+                  </header>
+                  <div class="comment-post">
+                    <p>
+                   <%= post.content %>
+                    </p>
+                  </div>
+                  
+                    <% if current_user.name == post.user.name %>
+                 <%= link_to 'Edit', edit_post_path(post) %>
+     
+     
+               <%= link_to 'Destroy', post, method: :delete %>
+                   <% end %>
+                </div>
+              </div>
+                <%= form_for [post, Comment.new] do |f| %>
+                <%= f.text_area :body, placeholder: "Comment that post", class: "form-control" %><br/>
+                <%= f.submit "Comment this!", class: "btn-success" %>
+                <% end %>
+                <br/>
+            </div>
+               
+          </article>
+            
+            <ul>
+                <%= render(partial: 'comments/comment', collection: post.comments) %>
+            </ul>
+            
+        </section>
+        
+        
+         <% end %>
+        
+      </div>
+       
+    </div>
+   
     </div>
 
-<h3>Comments</h3>
+<!-- test there -->
 
-<%= form_for [post, Comment.new] do |f| %>
-<%= f.text_area :body, placeholder: "Add a comment" %><br/>
-<%= f.submit "Add Comment" %>
-<% end %>
-
-
-
-
-
-<% end %>
-
-
-<%= link_to 'New Post', new_post_path %>
-
-<div class="container">
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
-	<div class="row">
-	<!-- Contenedor Principal -->
-    <div class="comments-container">
-		<h1>Posts Page <a href="http://creaticode.com">looks nice...</a></h1>
-
-		<ul id="comments-list" class="comments-list">
-			<li>
-                <% @posts.each do |post| %>
-				<div class="comment-main-level">
-					<!-- Avatar -->
-					<div class="comment-avatar"><img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_1_zps8e1c80cd.jpg" alt=""></div>
-					<!-- Contenedor del Comentario -->
-					<div class="comment-box">
-						<div class="comment-head">
-							<h6 class="comment-name by-author"><%= post.user.name %> wrote: </a></h6>
-							<span><%= time_ago_in_words(post.created_at) %></span>
-							<i class="fa fa-reply"></i>
-							<i class="fa fa-heart"></i>
-						</div>
-						<div class="comment-content">
-							<%= post.content %>
-						</div>
-					</div>
-				</div>
-                
-				<!-- Res
-puestas de los comentarios -->
-				<ul class="comments-list reply-list">
-					<li>
-						<!-- Avatar -->
-						<div class="comment-avatar"><img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_1_zps8e1c80cd.jpg" alt=""></div>
-						<!-- Contenedor del Comentario -->
-						<div class="comment-box">
-							<div class="comment-head">
-								<h6 class="comment-name by-author"><a href="http://creaticode.com/blog">Agustin Ortiz</a></h6>
-								<span>hace 10 minutos</span>
-								<i class="fa fa-reply"></i>
-								<i class="fa fa-heart"></i>
-							</div>
-							<div class="comment-content">
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
-							</div>
-						</div>
-					</li>
-				</ul>
-          <% end %>
-			</li>
-		</ul>
-	</div>
-	</div>
-</div>

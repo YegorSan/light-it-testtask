@@ -13,6 +13,10 @@ class User < ActiveRecord::Base
        end
      end
     end
+    
+     def normalimage
+       "http://graph.facebook.com/#{self.uid}/picture?type=normal"
+     end
 
 
 end

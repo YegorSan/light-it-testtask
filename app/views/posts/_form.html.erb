@@ -11,16 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_area :content %>
+
+  <div class="container">
+    <br/>
+    <%= f.text_area :content, class: "form-control" %><br/>
+      <div class="container"><%= f.submit "Share your post with us!", class: "btn btn-success btn-lg btn-block" %></div>
   </div>
  
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+ 
 <% end %>
