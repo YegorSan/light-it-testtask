@@ -5,7 +5,12 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :user_signed_in?
 
+
+ 
+
 private
+    
+
     
   def user_signed_in?
      !!session[:user_id]

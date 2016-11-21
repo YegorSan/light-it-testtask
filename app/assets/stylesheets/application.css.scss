@@ -17,15 +17,43 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.btn-danger { border-color: lightblue; background-color: lightblue;
+
+opacity: 0.5;
+}
+
+#bbb {
+    
+    color: antiquewhite;
+}
+
+.btn-danger:hover { border-color: whitesmoke;
+    background-color: whitesmoke; 
+}
+
+#ttt {
+    
+    color: midnightblue;
+    opacity: 1;
+}
+
+#homee {
+    background-image:url(../assets/test.jpg);
+
+    align-content: center;
+    margin-top: 120px;
+    opacity: 0.8;
+}
+
 #share {
     
-    margin-left: -16px;    
+    margin-left: -16px;
 }
 
 #pst {
     
     font-size: 3.7em;
-    color: brown;
+    color: lightgrey;
     
     letter-spacing: -1px;
     font-weight: bold;
@@ -46,13 +74,13 @@
 
 #mph {
    
+    margin-top: -75px;
    font-size: 28px;
    line-height: 40px;
    
    text-align: center;
   
    text-transform: uppercase;
-    background-image:url(../assets/background.png);
      font-size: 1.7em;
     color: lightblue;
     
@@ -164,5 +192,123 @@
     
     background-color:  #c2f0c2
 ;
+    
+}
+
+
+@import url(http://weloveiconfonts.com/api/?family=brandico|entypo|openwebicons|zocial);
+
+/* brandico */
+[class*="brandico-"]:before {
+  font-family: 'brandico', sans-serif;
+}
+
+/* entypo */
+[class*="entypo-"]:before {
+  font-family: 'entypo', sans-serif;
+}
+
+/* openwebicons */
+[class*="openwebicons-"]:before {
+  font-family: 'OpenWeb Icons', sans-serif;
+}
+
+/* zocial */
+[class*="zocial-"]:before {
+  font-family: 'zocial', sans-serif;
+}
+
+.form-signin{
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+
+.login-input {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.login-input-pass {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+
+.signup-input {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.signup-input-confirm {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+
+
+.create-account {
+  text-align: center;
+  width: 100%;
+  display: block;
+}
+
+.form-signin .form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.btn-center{
+  width: 50%;
+  text-align: center;
+  margin: inherit;
+}
+
+.social-login-btn {
+  margin: 5px;
+  width: 20%;
+  font-size: 250%;
+  padding: 0;
+}
+
+.social-login-more {
+  width: 45%;
+}
+
+
+
+.social-facebook {
+  background-color: blue;
+  border-color: blue;
+}
+.social-facebook:hover {
+  background-color: blue;
+  border-color: blue;
+}
+
+
+.form-signin-heading {
+    
+     font-size: 28px;
+   line-height: 40px;
+   
+   text-align: center;
+  
+  
+    background-image:url(../assets/background.png);
+     font-size: 2.7em;
+    color: whitesmoke;
+    
+    letter-spacing: -1px;
+    font-weight: bold;
     
 }

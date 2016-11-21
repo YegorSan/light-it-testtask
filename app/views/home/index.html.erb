@@ -1,13 +1,28 @@
-<h1>Homepage</h1>
 
-<ul>
-<% flash.each do |key, msg| %>
-  <%= content_tag :li, msg, id: key %>
-<% end %>
-</ul>
+<!-- tests -->
 
-<p><%= link_to 'Sign in with Facebook', signin_path, class: "btn-facebook" %></p>
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
 
-<button type="button" class="btn btn-lg btn-fb"><i class="fa fa-facebook left"></i> Facebook</button>
+<div class="container">
+      
+      <script id="metamorph-1-start" type="text/x-placeholder"></script><script id="metamorph-21-start" type="text/x-placeholder"></script>
+
+	<div class="container text-center">
+	    <form class="form-signin" data-ember-action="2">
+	    	<h2 class="form-signin-heading">Sign in</h2>
+
+			<strong id="bbb">Welcome to my test app!
+                Facebook authentication is configured and working, posts page is available only for signed in users, before writing posts please login. In order to login, please push the button below: </strong>
+			<br><br>
+
+			
+<p>
+<a class="btn btn-primary social-login-btn social-facebook" href="/auth/facebook"><i class="fa fa-facebook"></i></a>
+
+</p>
 
 
+        </form>
+
+    </div>
+</div>

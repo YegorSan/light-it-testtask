@@ -1,9 +1,12 @@
+
+
+<% if user_signed_in? %>
 <div class="nav" id='mph'><h3>Welcome <%= current_user.name %></h3>  
-   
+  
 <%= image_tag(current_user.normalimage) %>
     
     <br/>
-    <%= link_to "Sign out", signout_path, class: "btn btn-danger" %>
+    <%= link_to "Sign out", signout_path, class: "btn btn-danger", id: 'ttt' %>
     <br/>
     <br/>
 </div>
@@ -74,6 +77,13 @@
     </div>
    
     </div>
+<% else %>
+
+<h1>Please Signup before posting content!</h1>
+
+<%= link_to "Proceed with signin in", home_index_path %>
+
+<% end %>  
 
 <!-- test there -->
 

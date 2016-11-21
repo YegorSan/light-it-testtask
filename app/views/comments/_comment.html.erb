@@ -23,7 +23,7 @@
                   
                     <% if current_user.name == comment.user.name %>
                  
-                   <%= link_to 'Update', edit_post_comment_path(:commentable_id, :post_id) %>
+                   
      
                    <%= link_to 'Destroy', comment, method: :delete %>
                    <% end %>
@@ -32,7 +32,7 @@
                 
       <%= form_for [comment, Comment.new] do |f| %>
       <%= f.text_area :body, placeholder: "Reply to this comment", class: "form-control", id: "comm" %><br/>
-                <li><%= f.submit "Reply", class: "btn-danger" %></li>
+                <li><%= f.submit "Reply", class: "btn-danger", id: 'ttt' %></li>
       <br/>            
       <% end %>
             </div>
