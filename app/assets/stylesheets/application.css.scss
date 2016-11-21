@@ -17,13 +17,49 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-#mph {
+#share {
     
-    text-align: center;
-   text-decoration-style: solid;
-   text-transform: uppercase;
+    margin-left: -16px;    
+}
+
+#pst {
+    
+    font-size: 3.7em;
+    color: brown;
+    
+    letter-spacing: -1px;
+    font-weight: bold;
     
 }
+
+#bckg {
+    
+       background-image:url(../assets/body.png);
+
+}
+
+#mph h3 {
+    
+    margin-top: 25px;
+    
+}
+
+#mph {
+   
+   font-size: 28px;
+   line-height: 40px;
+   
+   text-align: center;
+  
+   text-transform: uppercase;
+    background-image:url(../assets/background.png);
+     font-size: 1.7em;
+    color: lightblue;
+    
+    letter-spacing: -1px;
+    font-weight: bold;
+    
+ }
 
 #ceh {
     
@@ -126,6 +162,7 @@
 
 #asd {
     
-    background-color: chartreuse;
+    background-color:  #c2f0c2
+;
     
 }

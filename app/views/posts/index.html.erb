@@ -1,17 +1,22 @@
-<div class="page-header" id='mph'>Welcome <%= current_user.name %> <br/>  <%= image_tag(current_user.normalimage) %>
+<div class="nav" id='mph'><h3>Welcome <%= current_user.name %></h3>  
+   
+<%= image_tag(current_user.normalimage) %>
     
     <br/>
-    <%= link_to "Sign out", signout_path %>
+    <%= link_to "Sign out", signout_path, class: "btn btn-danger" %>
+    <br/>
+    <br/>
 </div>
-
+<br/>
 <%= render 'form' %>
 
+<br/>
 
  
 <div class="container">
   <div class="row">
     <div class="col-md-8">
-      <h2 class="page-header">Posts</h2>
+      <h2 class="page-header" id="pst">Latest posts ...</h2>
         <% @posts.each do |post| %>
         <section class="comment-list">
           <!-- First Comment -->
